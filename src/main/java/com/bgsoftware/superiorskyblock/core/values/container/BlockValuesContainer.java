@@ -16,6 +16,10 @@ public abstract class BlockValuesContainer {
     public abstract void loadDefaultValues(SuperiorSkyblockPlugin plugin);
 
     public void setBlockValue(Key key, BigDecimal value) {
+        if (key == null) {
+            return;
+        }
+
         valuesMap.put(getBlockValueKey(key), value);
     }
 

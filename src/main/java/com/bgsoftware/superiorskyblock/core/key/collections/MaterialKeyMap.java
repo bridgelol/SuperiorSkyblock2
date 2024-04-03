@@ -87,7 +87,7 @@ public class MaterialKeyMap<V> extends AbstractMap<Key, V> implements KeyMap<V> 
     }
 
     @Override
-    public V put(Key key, V value) {
+    public V put(Key key, @org.jetbrains.annotations.NotNull V value) {
         if (key instanceof LazyKey) {
             return put(((LazyKey<?>) key).getBaseKey(), value);
         }
