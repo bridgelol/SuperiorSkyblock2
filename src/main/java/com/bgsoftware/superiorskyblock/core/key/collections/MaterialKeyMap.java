@@ -87,7 +87,7 @@ public class MaterialKeyMap<V> extends AbstractMap<Key, V> implements KeyMap<V> 
     }
 
     @Override
-    public V put(Key key, @org.jetbrains.annotations.NotNull V value) {
+    public V put(Key key, V value) {
         if (key instanceof LazyKey) {
             return put(((LazyKey<?>) key).getBaseKey(), value);
         }
@@ -100,7 +100,7 @@ public class MaterialKeyMap<V> extends AbstractMap<Key, V> implements KeyMap<V> 
             return this.customInnerMap.get().put((CustomKey) key, value);
         }
 
-        throw new IllegalArgumentException("obj is not MaterialKey");
+        throw new IllegalArgumentException("obj is not MaterialKey, type is " + (key == null ? "null" : key.getClass().getName()));
     }
 
     @Override
