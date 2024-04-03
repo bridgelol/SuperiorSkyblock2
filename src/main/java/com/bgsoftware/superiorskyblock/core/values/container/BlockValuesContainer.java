@@ -20,7 +20,13 @@ public abstract class BlockValuesContainer {
             return;
         }
 
-        valuesMap.put(getBlockValueKey(key), value);
+        final Key blockValueKey = getBlockValueKey(key);
+
+        if (blockValueKey == null) {
+            return;
+        }
+
+        valuesMap.put(blockValueKey, value);
     }
 
     public BigDecimal getBlockValue(Key key) {
