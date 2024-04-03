@@ -40,3 +40,9 @@ publishing {
 task generateAPIDocs(type: Javadoc) {
     source = sourceSets.main.allJava
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
